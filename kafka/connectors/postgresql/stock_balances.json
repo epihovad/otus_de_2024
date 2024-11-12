@@ -1,0 +1,29 @@
+{
+  "name": "wms.stock_balances",
+  "config": {
+    "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+    "tasks.max": "1",
+    "plugin.name": "pgoutput",
+    "database.hostname": "10.131.0.15",
+    "database.port": "5432",
+    "database.user": "debezium",
+    "database.password": "debezium",
+    "database.dbname": "wms",
+    "database.server.name": "wms",
+    "topic.prefix": "wms",
+    "table.include.list": "public.stock_balances",
+    "publication.name": "stock_balances_publication",
+    "slot.name": "replication_slot",
+    "database.history.kafka.bootstrap.servers": "10.131.0.15:9092",
+    "database.history.kafka.topic": "wms.schema-changes",
+    "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "key.converter.schemas.enable": "false",
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "value.converter.schemas.enable": "false",
+    "transforms": "flatten",
+    "transforms.flatten.type": "org.apache.kafka.connect.transforms.Flatten$Value",
+    "transforms.flatten.delimiter": ".",
+    "heartbeat.interval.ms": "10000",
+    "snapshot.mode": "initial"
+  }
+}

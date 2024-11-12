@@ -1,0 +1,18 @@
+services:
+  wms:
+    # image: postgres:15.3
+    build: .
+    container_name: wms
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: wms
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - 5432:5432
+    # volumes:
+    #   - data:/var/lib/postgresql/data
+    restart: always
+
+# volumes:
+#   data:

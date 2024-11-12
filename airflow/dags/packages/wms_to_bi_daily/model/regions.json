@@ -1,0 +1,17 @@
+{
+    "name": "regions",
+    "source": {
+      "database": "wms",
+      "schema": "public",
+      "table": "regions",
+      "headers": [
+        "region_id",
+        "region_name",
+        "updated_at"
+      ]
+    },
+    "target": {
+      "database": "default",
+      "table": "regions"
+    }
+  }

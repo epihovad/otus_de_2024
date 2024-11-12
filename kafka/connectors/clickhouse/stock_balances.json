@@ -1,0 +1,33 @@
+{
+  "name": "ch.stock_balances",
+  "config": {
+    "connector.class": "com.clickhouse.kafka.connect.ClickHouseSinkConnector",
+    "tasks.max": "1",
+    "consumer.override.max.poll.records": "5000",
+    "consumer.override.max.partition.fetch.bytes": "5242880",
+    "database": "default",
+    "errors.retry.timeout": "60",
+    "exactlyOnce": "false",
+    "hostname": "10.131.0.15",
+    "port": "8123",
+    "ssl": "false",
+    "jdbcConnectionProperties": "",
+    "username": "admin",
+    "password": "admin",
+    "topics": "wms.public.stock_balances",
+    "topic2TableMap": "wms.public.stock_balances=kafka_wms_stock_balances",
+    "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "key.converter.schemas.enable": "false",
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "value.converter.schemas.enable": "false",
+    "value.converter.schemas.infer.enable": "false",
+    "clickhouseSettings": "",
+    "schemas.ignore": "true",
+    "transforms": "insert, extract",
+    "transforms.insert.type": "org.apache.kafka.connect.transforms.InsertField$Value",
+    "transforms.insert.partition.field": "_partition",
+    "transforms.insert.offset.field": "_offset",
+    "transforms.extract.type": "org.apache.kafka.connect.transforms.ReplaceField$Value",
+    "transforms.extract.whitelist": "before.warehouse_id, before.product_id, before.quantity, after.warehouse_id, after.product_id, after.quantity, op, ts_ms, _partition, _offset"
+  }
+}

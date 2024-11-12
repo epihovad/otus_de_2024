@@ -1,0 +1,16 @@
+<clickhouse>
+    <users>
+        <admin>
+            <password_sha256_hex>8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918</password_sha256_hex>
+            <profile>default</profile>
+            <quota>default</quota>
+            <access_management>1</access_management>
+            <allow_introspection_functions>1</allow_introspection_functions>
+            <access>
+                <grants>
+                    <query>GRANT ALL ON *.*</query>
+                </grants>
+            </access>
+        </admin>
+    </users>
+</clickhouse>

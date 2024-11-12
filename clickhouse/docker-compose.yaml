@@ -1,0 +1,20 @@
+services:
+  clickhouse:
+    build: .
+    # image: clickhouse/clickhouse-server:latest
+    container_name: clickhouse
+    ports:
+      - "9000:9000"
+      - "8123:8123"
+    volumes:
+      - data:/var/lib/clickhouse
+      - logs:/var/log/clickhouse-server
+    # volumes:
+      # - data:/var/lib/clickhouse
+      # - ./config/config.xml:/etc/clickhouse-server/conf.d/config.xml:ro
+      # - ./config/users.xml:/etc/clickhouse-server/users.d/users.xml
+    # restart: unless-stopped
+
+volumes:
+  data:
+  logs:

@@ -1,0 +1,18 @@
+{
+    "name": "products",
+    "source": {
+      "database": "wms",
+      "schema": "public",
+      "table": "products",
+      "headers": [
+        "product_id",
+        "product_name",
+        "product_category",
+        "updated_at"
+      ]
+    },
+    "target": {
+      "database": "default",
+      "table": "products"
+    }
+  }
